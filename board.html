@@ -44,7 +44,7 @@
 </div>
 
 <script>
-  // ⚠️ 여기에 배포한 Google Apps Script 웹 앱 URL을 입력하세요.
+  // 배포한 Google Apps Script 웹 앱 URL
   const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzGPwHeRjuiD0xB-f0WwiIUZF6bfiMzPFAKDGzWj86IlZe7E8n9xJbCkPJwzPCJiCVz/exec";
 
   const form = document.getElementById('guestbook-form');
@@ -101,7 +101,6 @@
     submitBtn.textContent = '저장 중...';
 
     try {
-      // GAS redirect 특성 처리를 위한 text/plain 커스텀 fetch
       await fetch(GAS_WEB_APP_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -119,7 +118,7 @@
     }
   });
 
-  // XSS 방지 처리
+  // XSS 방지 처리 (정상적인 HTML 엔티티 코드로 수정됨)
   function escapeHtml(text) {
     return text
       .replace(/&/g, "&")
